@@ -1,0 +1,219 @@
+[gd_scene load_steps=19 format=3 uid="uid://d3y5y6k8eq348"]
+
+[ext_resource type="Script" uid="uid://bbxm33d0pn06t" path="res://node_3d.gd" id="1_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://bqfa5plslp4ph" path="res://aspas_ventilador.glb" id="2_jka67"]
+[ext_resource type="PackedScene" uid="uid://qvdwp1poxign" path="res://perrito_simple_pintado.glb" id="2_jsk3o"]
+[ext_resource type="PackedScene" uid="uid://bl0451fk06pyo" path="res://cilindro.glb" id="3_i5arm"]
+[ext_resource type="PackedScene" uid="uid://bfq08hoygw5vk" path="res://casa_2_paredes_colores.glb" id="4_wc5p8"]
+[ext_resource type="Texture2D" uid="uid://ds0l1j7wd84ag" path="res://bloque_celeste_nubes_0.png" id="5_jka67"]
+[ext_resource type="PackedScene" uid="uid://dye45vwiusvxw" path="res://pantalla_led_amarilla.glb" id="6_i5arm"]
+[ext_resource type="PackedScene" uid="uid://tstbipcl3w6x" path="res://luz_led.glb" id="7_wc5p8"]
+[ext_resource type="Script" uid="uid://dblfeh51mtkdy" path="res://mqttsafepet.gd" id="9_4arys"]
+[ext_resource type="Script" uid="uid://cquvn3te6ogvv" path="res://safe_pet_mqtt.gd" id="10_6iypd"]
+
+[sub_resource type="Animation" id="Animation_cdqbm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.4125613, -0.19467211, 0.37241817)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5229913, 2.8146226, -3.1415925)]
+}
+
+[sub_resource type="Animation" id="Animation_tereu"]
+resource_name = "caminando"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.59, 1.06, 2.01, 4.22, 5.5, 6.55, 7.084887, 7.73, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.4125613, -0.19467211, 0.37241817), Vector3(0.19392526, -0.19467211, 0.37241817), Vector3(1.2404562, -0.19467211, 0.9409046), Vector3(1.5389651, -0.19467211, 1.4827933), Vector3(1.5389651, -0.19467211, 1.4827933), Vector3(0.028377175, -0.19467211, 0.6788411), Vector3(0.028377175, -0.19467211, 0.6788411), Vector3(0.028377175, -0.13872029, 0.6788411), Vector3(0.028377175, -0.07123828, 0.6788411), Vector3(-0.6533979, -0.07123828, 0.6788411)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.59, 1.05, 2.01, 4.22, 5.5, 6.55, 7.084887, 7.73, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5229913, 2.8146226, -3.1415925), Vector3(-1.3690944, -1.7986575, 1.4668741), Vector3(-1.3690946, -1.9335192, 1.4668741), Vector3(-1.4724988, -2.172088, 0.9079463), Vector3(-1.3649838, -2.734443, 1.4757414), Vector3(-1.4965492, 1.4489495, 1.1537926), Vector3(-1.4714031, -1.4798094, -2.1998544), Vector3(-1.4709847, -1.0568933, -2.1994736), Vector3(-1.4704812, -1.480645, -2.1990147), Vector3(-1.4704823, 1.5552156, -2.1990147)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_imku0"]
+_data = {
+&"RESET": SubResource("Animation_cdqbm"),
+&"caminando": SubResource("Animation_tereu")
+}
+
+[sub_resource type="Environment" id="Environment_jka67"]
+background_mode = 3
+background_canvas_max_layer = 1
+
+[sub_resource type="Animation" id="Animation_6iypd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("aspas_ventilador:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.005462881, -4.2566883e-10, -1.0628691)]
+}
+
+[sub_resource type="Animation" id="Animation_jsk3o"]
+resource_name = "apagado"
+
+[sub_resource type="Animation" id="Animation_4arys"]
+resource_name = "prendido"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("aspas_ventilador:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.005462881, -4.2566883e-10, -1.0628691), Vector3(-0.0052359877, 0, -15.488051)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tereu"]
+_data = {
+&"RESET": SubResource("Animation_6iypd"),
+&"apagado": SubResource("Animation_jsk3o"),
+&"prendido": SubResource("Animation_4arys")
+}
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_r3fl7")
+
+[node name="perrito_simple_pintado" parent="." instance=ExtResource("2_jsk3o")]
+transform = Transform3D(0.6865892, 0.2325857, 0.011127248, -5.231315e-09, -0.034645434, 0.72417146, 0.23285171, -0.68580484, -0.032809913, -0.4125613, -0.19467211, 0.37241817)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="perrito_simple_pintado"]
+libraries = {
+&"": SubResource("AnimationLibrary_imku0")
+}
+
+[node name="botones" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="interfaz" type="Control" parent="botones"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1148.0
+offset_bottom = 648.0
+
+[node name="prender led" type="Button" parent="botones/interfaz"]
+z_index = -1
+layout_mode = 0
+offset_left = 639.0
+offset_top = 526.0
+offset_right = 880.0
+offset_bottom = 592.0
+text = "PRENDER LED"
+
+[node name="PRENDER VENTILADOR" type="Button" parent="botones/interfaz"]
+layout_mode = 0
+offset_left = 902.0
+offset_top = 527.0
+offset_right = 1129.0
+offset_bottom = 593.0
+text = "PRENDER VENTILADOR"
+
+[node name="fondo" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="fondo"]
+modulate = Color(0.95596343, 0.9559633, 0.95596343, 1)
+offset_right = 1150.0
+offset_bottom = 645.0
+texture = ExtResource("5_jka67")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jka67")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.9558048, -0.18796986, 0.22606277, -0.028129531, 0.7069205, 0.70673347, -0.29265302, -0.6818583, 0.6703906, 1.0002749, 4.4721165, 4.3034654)
+
+[node name="Ventilador" type="Node3D" parent="."]
+
+[node name="aspas_ventilador" parent="Ventilador" instance=ExtResource("2_jka67")]
+transform = Transform3D(0.4912309, 0.8824921, -4.299192e-10, -0.8824789, 0.49122363, 0.005517484, 0.004820925, -0.0026835226, 1.0099852, -1.4459522, 1.6047186, -1.8924047)
+
+[node name="cilindro" parent="Ventilador" instance=ExtResource("3_i5arm")]
+transform = Transform3D(0.565, 0, 0, 0, -2.425982e-08, -2.585, 0, 0.555, -1.1299394e-07, -1.6068766, 0.31676006, -2.2525694)
+
+[node name="ventiladoranim" type="AnimationPlayer" parent="Ventilador"]
+libraries = {
+&"": SubResource("AnimationLibrary_tereu")
+}
+
+[node name="casa_2_paredes_colores" parent="." instance=ExtResource("4_wc5p8")]
+
+[node name="luzcasa" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8456676, 3.9625218)
+light_energy = 1.625
+omni_range = 12.887622
+
+[node name="pantalla_led_amarilla" parent="." instance=ExtResource("6_i5arm")]
+transform = Transform3D(1, 0, 0, 0, -0.11966896, 0.9928138, 0, -0.9928138, -0.11966896, 1.8612819, 2.3775585, -2.8661475)
+
+[node name="textopantalla" type="Label3D" parent="pantalla_led_amarilla"]
+transform = Transform3D(1, 0, 0, 0, 0.13784212, -0.9904543, 0, 0.9904543, 0.13784212, 0.026114464, -0.17467523, 0.17107964)
+pixel_size = 0.0055
+text = "SAFEPET
+TEMPERATURA"
+
+[node name="luz_led" parent="." instance=ExtResource("7_wc5p8")]
+transform = Transform3D(-0.025234805, 0, 0.99968153, 0, 1, 0, -0.99968153, 0, -0.025234805, -2.6412253, 2.3922124, 1.5452597)
+
+[node name="LUZLED" type="OmniLight3D" parent="luz_led"]
+transform = Transform3D(-0.9779803, 1.6052785e-05, -0.20869702, -2.2021527e-06, 1, 8.723867e-05, 0.20869702, 8.577728e-05, -0.9779803, -1.2864494, 0, 0.8304713)
+light_color = Color(0.99999994, 0.20178589, 0.030598836, 1)
+light_energy = 11.5
+omni_range = 4.2444158
+
+[node name="mqttclient" type="Node" parent="."]
+script = ExtResource("9_4arys")
+
+[node name="SafePetMqtt" type="Node" parent="." node_paths=PackedStringArray("mqtt")]
+script = ExtResource("10_6iypd")
+mqtt = NodePath("../mqttclient")
+
+[connection signal="pressed" from="botones/interfaz/prender led" to="." method="_on_prender_led_pressed"]
+[connection signal="pressed" from="botones/interfaz/PRENDER VENTILADOR" to="." method="_on_prender_ventilador_pressed"]
